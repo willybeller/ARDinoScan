@@ -13,13 +13,13 @@ Application de réalité augmentée permettant de scanner des images de dinosaur
 L'application reconnaît 3 images de dinosaures :
 
 ### 1. Pachycephalasaurus
-![Pachycephalasaurus](imagesCibles/Pachy.png)
+![Pachycephalasaurus](https://raw.githubusercontent.com/willybeller/ARDinoScan/refs/heads/main/ImagesCibles/Pachy.png)
 
 ### 2. Stegasaurus  
-![Stegasaurus](imagesCibles/stega.png)
+![Stegasaurus](https://raw.githubusercontent.com/willybeller/ARDinoScan/refs/heads/main/ImagesCibles/Stega.png)
 
 ### 3. Velociraptor
-![Velociraptor](imagesCibles/raptor.png)
+![Velociraptor](https://raw.githubusercontent.com/willybeller/ARDinoScan/refs/heads/main/ImagesCibles/Raptor.png)
 
 
 ## 🦕 Fonctionnalités
