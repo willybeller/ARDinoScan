@@ -1526,6 +1526,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 442232509}
     m_Modifications:
+    - target: {fileID: -6938986035272928436, guid: 6bcc76aebcc27f641a1ba39f7e8e5fe6, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9950eef40ff17384c9df3c0a3803557a, type: 2}
     - target: {fileID: -6057140222963153312, guid: 6bcc76aebcc27f641a1ba39f7e8e5fe6, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2079,6 +2083,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5733670820373371063, guid: 0f65eb0400553da4eafb6c938021d0b8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d5b51a95dbb727b4992dd05190da3a16, type: 2}
     - target: {fileID: 919132149155446097, guid: 0f65eb0400553da4eafb6c938021d0b8, type: 3}
       propertyPath: m_Name
       value: Stegasaurus_20K
@@ -2095,6 +2103,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2e27cac0e600c7844b915c33e0870c77, type: 2}
+    - target: {fileID: 6464491836990804570, guid: 0f65eb0400553da4eafb6c938021d0b8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7efb5142cfbd65647a7f90602b9bd568, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
