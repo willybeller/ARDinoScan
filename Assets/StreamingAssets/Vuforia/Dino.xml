@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="stegasaurus" size="500.000000 501.466278" />
+    <ImageTarget name="Raptor" size="50.000000 50.072887" />
+  </Tracking>
+</QCARConfig>

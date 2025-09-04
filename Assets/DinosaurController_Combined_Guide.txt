@@ -1,0 +1,108 @@
+/*
+=== NOUVEAU ANIMATOR CONTROLLER COMBINÉ - DinosaurController_Combined ===
+
+FICHIER CRÉÉ : DinosaurController_Combined.controller
+EMPLACEMENT : Assets/FerociousIndustries/PBRDinosaurs/PBRStegasaurus/Animators/
+
+=== CONFIGURATION DES ANIMATIONS ===
+
+ÉTATS D'ANIMATION :
+1. 🟢 "Idle_Default" (État par défaut - ORANGE dans l'Animator)
+   - Animation : Stegasaurus_IdleB
+   - Rôle : Animation par défaut quand le dinosaure est détecté
+   - Transitions VERS : Attack, Scream, Death
+
+2. 🔴 "Attack_Stomp" 
+   - Animation : Stegasaurus_Stomp
+   - Trigger : AttackTrigger
+   - Retourne automatiquement vers Idle après l'animation
+
+3. 🟡 "Scream_Walk"
+   - Animation : Stegasaurus_Walk
+   - Trigger : ScreamTrigger  
+   - Retourne automatiquement vers Idle après l'animation
+
+4. ⚫ "Death_IdleA"
+   - Animation : Stegasaurus_IdleA
+   - Trigger : DeathTrigger
+   - Retourne automatiquement vers Idle après l'animation
+
+=== TRIGGERS CONFIGURÉS ===
+
+PARAMÈTRES (Type: Trigger) :
+- ✅ IdleTrigger
+- ✅ AttackTrigger  
+- ✅ ScreamTrigger
+- ✅ DeathTrigger
+
+=== FLUX D'ANIMATIONS ===
+
+┌─────────────┐  AttackTrigger   ┌──────────────┐
+│    Idle     │ ──────────────> │ Attack_Stomp │
+│ (Default)   │ <────────────── │              │
+│   🟢        │   (Exit Time)   │      🔴      │
+└─────────────┘                 └──────────────┘
+       │  ^
+       │  │ ScreamTrigger      ┌──────────────┐
+       │  └──────────────────> │ Scream_Walk  │
+       │   <────────────────── │              │
+       │        (Exit Time)    │      🟡      │
+       │
+       │ DeathTrigger          ┌──────────────┐
+       └─────────────────────> │ Death_IdleA  │
+         <───────────────────── │              │
+              (Exit Time)       │      ⚫      │
+                               └──────────────┘
+
+ANY STATE ──IdleTrigger──> Idle_Default
+(Permet de revenir à l'idle depuis n'importe quel état)
+
+=== CONFIGURATION DANS UNITY ===
+
+1. ASSIGNATION DE L'ANIMATOR :
+   - Sélectionnez votre modèle de dinosaure
+   - Dans le composant Animator, assignez "DinosaurController_Combined"
+
+2. CONFIGURATION DU SCRIPT test_lancement.cs :
+   Dans l'Inspector, configurez :
+   - Idle Trigger Name : "IdleTrigger"
+   - Attack Trigger Name : "AttackTrigger"  
+   - Scream Trigger Name : "ScreamTrigger"
+   - Death Trigger Name : "DeathTrigger"
+
+3. CORRESPONDANCE BOUTONS → ANIMATIONS :
+   - 🔴 Bouton Attack → Stomp (piétinement)
+   - 🟡 Bouton Scream → Walk (marche comme cri/rugissement)
+   - ⚫ Bouton Death → IdleA (mort/effondrement)
+
+=== FONCTIONNEMENT ===
+
+SÉQUENCE NORMALE :
+1. Image détectée → IdleTrigger → Animation Idle par défaut
+2. Clic sur bouton → Trigger correspondant → Animation spécifique
+3. Fin d'animation → Retour automatique vers Idle
+4. Image perdue → Dinosaure caché
+
+AVANTAGES DE CETTE CONFIGURATION :
+✅ Transitions fluides entre toutes les animations
+✅ Retour automatique vers l'état Idle
+✅ Possibilité de revenir à l'Idle depuis Any State
+✅ Gestion propre des interruptions
+✅ Compatible avec le script test_lancement.cs
+
+=== SONS RECOMMANDÉS ===
+
+Pour chaque bouton, ajoutez des sons appropriés :
+- 🔴 Attack → Son de piétinement/impact
+- 🟡 Scream → Son de rugissement/cri
+- ⚫ Death → Son de chute/gémissement
+
+=== NOTES IMPORTANTES ===
+
+- L'état "Idle_Default" est défini comme état par défaut (orange)
+- Toutes les transitions de retour utilisent "Has Exit Time = true"
+- Les transitions depuis Idle utilisent "Has Exit Time = false" pour une réaction immédiate
+- Le trigger "IdleTrigger" depuis Any State permet de forcer le retour à l'idle si nécessaire
+
+PRÊT À UTILISER ! 🦕
+*/

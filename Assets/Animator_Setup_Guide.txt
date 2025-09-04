@@ -1,0 +1,87 @@
+/*
+=== GUIDE DE CONFIGURATION DE L'ANIMATOR CONTROLLER AVEC TRIGGERS ===
+
+ÉTAPES POUR CONFIGURER L'ANIMATOR CONTROLLER :
+
+1. CRÉATION DE L'ANIMATOR CONTROLLER :
+   - Clic droit dans Assets > Create > Animator Controller
+   - Nommez-le "DinosaurAnimator" ou similaire
+   - Assignez-le au composant Animator de votre modèle de dinosaure
+
+2. CRÉATION DES PARAMÈTRES (TRIGGERS) :
+   Dans l'onglet Parameters de l'Animator :
+   - Cliquez sur "+" > Trigger > Nommez "IdleTrigger"
+   - Cliquez sur "+" > Trigger > Nommez "AttackTrigger"
+   - Cliquez sur "+" > Trigger > Nommez "ScreamTrigger"
+   - Cliquez sur "+" > Trigger > Nommez "DeathTrigger"
+
+3. CRÉATION DES ÉTATS D'ANIMATION :
+   - Clic droit dans la grille > Create State > Empty
+   - Nommez les états : "Idle", "Attack", "Scream", "Death"
+   - Assignez les clips d'animation correspondants à chaque état
+
+4. CRÉATION DES TRANSITIONS :
+   Depuis l'état "Idle" vers tous les autres :
+   - Clic droit sur "Idle" > Make Transition > Cliquez sur "Attack"
+   - Répétez pour "Scream" et "Death"
+   
+   Retour vers "Idle" depuis tous les états :
+   - Depuis "Attack" vers "Idle"
+   - Depuis "Scream" vers "Idle"
+   - Depuis "Death" vers "Idle" (optionnel)
+
+5. CONFIGURATION DES CONDITIONS DE TRANSITION :
+   Pour chaque transition, sélectionnez-la et :
+   - Décochez "Has Exit Time" (pour une transition immédiate)
+   - Dans Conditions, ajoutez le trigger correspondant :
+     * Idle → Attack : Condition = AttackTrigger
+     * Idle → Scream : Condition = ScreamTrigger
+     * Idle → Death : Condition = DeathTrigger
+     * Attack → Idle : Has Exit Time = true (se déclenche à la fin de l'animation)
+     * Scream → Idle : Has Exit Time = true
+     * Death → Idle : Has Exit Time = true (optionnel)
+
+6. DÉFINITION DE L'ÉTAT PAR DÉFAUT :
+   - Clic droit sur l'état "Idle" > Set as Layer Default State
+   - Cela rendra l'état Idle orange (état par défaut)
+
+STRUCTURE RECOMMANDÉE DE L'ANIMATOR :
+
+┌─────────┐    AttackTrigger    ┌─────────┐
+│   Idle  │ ──────────────────> │ Attack  │
+│ (Orange)│ <────────────────── │         │
+└─────────┘                     └─────────┘
+     │  ^                             │
+     │  │ (Exit Time)                 │ (Exit Time)
+     │  └─────────────────────────────┘
+     │
+     │ ScreamTrigger          ┌─────────┐
+     └──────────────────────> │ Scream  │
+     │ <────────────────────── │         │
+     │                        └─────────┘
+     │           (Exit Time)
+     │
+     │ DeathTrigger           ┌─────────┐
+     └──────────────────────> │ Death   │
+       <────────────────────── │         │
+                  (Exit Time)  └─────────┘
+
+DANS LE SCRIPT test_lancement.cs :
+- IdleTrigger = "IdleTrigger"
+- AttackTrigger = "AttackTrigger"
+- ScreamTrigger = "ScreamTrigger"
+- DeathTrigger = "DeathTrigger"
+
+AVANTAGES DES TRIGGERS :
+✅ Transitions fluides entre animations
+✅ Pas d'interruption brutale des animations
+✅ Meilleur contrôle des états
+✅ Possibilité d'ajouter des conditions complexes
+✅ Plus professionnel et maintenable
+
+NOTES IMPORTANTES :
+- Les noms des triggers dans le script DOIVENT correspondre exactement à ceux de l'Animator
+- "Has Exit Time" = true permet à l'animation de se terminer avant de transitionner
+- "Has Exit Time" = false fait une transition immédiate
+- L'état Idle est l'état par défaut qui se joue au début et entre les actions
+*/

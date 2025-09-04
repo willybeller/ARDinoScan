@@ -1,0 +1,58 @@
+/*
+=== GUIDE DE CONFIGURATION DES BOUTONS UI ===
+
+1. CRÉATION DES BOUTONS UI :
+   - Clic droit dans la hiérarchie > UI > Canvas (si vous n'en avez pas)
+   - Clic droit sur Canvas > UI > Button - TextMeshPro
+   - Répétez pour créer 3 boutons : Attack, Scream, Death
+
+2. NOMMAGE DES BOUTONS :
+   - Renommez les boutons : "AttackButton", "ScreamButton", "DeathButton"
+   - Changez le texte des boutons pour afficher "Attack", "Scream", "Death"
+
+3. POSITIONNEMENT :
+   - Placez les boutons en bas de l'écran ou sur le côté
+   - Assurez-vous qu'ils ne gênent pas la vue de l'AR
+
+4. CONFIGURATION DU SCRIPT :
+   - Sélectionnez votre ImageTarget
+   - Dans le script test_lancement, assignez :
+     * Animator : Le composant Animator de votre dinosaure
+     * Attack Button : Votre bouton Attack
+     * Scream Button : Votre bouton Scream  
+     * Death Button : Votre bouton Death
+     * Attack Animation Name : Le nom exact de l'animation d'attaque dans l'Animator
+     * Scream Animation Name : Le nom exact de l'animation de cri
+     * Death Animation Name : Le nom exact de l'animation de mort
+     * Attack Sound : Fichier audio pour l'attaque
+     * Scream Sound : Fichier audio pour le cri
+     * Death Sound : Fichier audio pour la mort
+
+5. ANIMATIONS REQUISES DANS L'ANIMATOR :
+   Votre Animator Controller doit contenir les animations suivantes :
+   - "Entry" (animation par défaut au lancement)
+   - "Attack" (animation d'attaque)
+   - "Scream" (animation de cri)
+   - "Death" (animation de mort)
+
+6. SONS RECOMMANDÉS :
+   - Formats supportés : .wav, .mp3, .ogg
+   - Placez les fichiers audio dans Assets/Audio/ ou Assets/Resources/
+   - Glissez-les dans les champs correspondants du script
+
+7. FONCTIONNEMENT :
+   - Les boutons sont désactivés par défaut
+   - Quand l'image est détectée, les boutons s'activent
+   - Quand l'image est perdue, les boutons se désactivent
+   - Cliquer sur un bouton lance l'animation ET le son correspondant
+
+STRUCTURE RECOMMANDÉE :
+ImageTarget (avec script test_lancement)
+├── DinosaurModel (avec Animator)
+│   ├── Mesh Renderer
+│   └── Animator Controller
+└── Canvas
+    ├── AttackButton
+    ├── ScreamButton
+    └── DeathButton
+*/
